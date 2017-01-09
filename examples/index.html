@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Example - Leaflet.Control.Custom</title>
+
+        <style>
+            body {
+                margin:0px;
+                padding:0px;
+            }
+
+            div#map {
+                height: 100vh;
+                width: 100vw;
+                display: block;
+            }
+        </style>
+
+        <!-- JQUERY CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+        <!-- BOOTSTRAP Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous">
+
+        <!-- BOOTSTRAP Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous">
+        </script>
+
+        <!-- FONT AWESOME CDN -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+        <!-- Leaflet v1.0.2 -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet-src.js"></script>
+
+        <!-- Leaflet v1.0.1 -->
+        <!--
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/leaflet.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/leaflet-src.js"></script>
+        -->
+
+        <!-- Leaflet v1.0.0 -->
+        <!--
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0/leaflet.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0/leaflet-src.js"></script>
+        -->
+
+        <!-- Leaflet v0.7.0 -->
+        <!--
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.0/leaflet.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.0/leaflet-src.js"></script>
+        -->
+
+        <!-- Leaflet v0.6.0 -->
+        <!--
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.6.0/leaflet.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.6.0/leaflet-src.js"></script>
+        -->
+
+        <script src="Leaflet.Control.Custom.js"></script>
+
+    </head>
+    <body>
+        <div id="map"></div>
+    </body>
+
+    <script type="text/javascript">
+
+        $(document).ready(function()
+        {
+            var map = L.map('map').setView([41.044663,29.033775], 12);
+
+            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+                maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+
+            L.control.custom({
+                position: 'topright',
+                content : '<button type="button" class="btn btn-default">'+
+                          '    <i class="fa fa-crosshairs"></i>'+
+                          '</button>'+
+                          '<button type="button" class="btn btn-info">'+
+                          '    <i class="fa fa-compass"></i>'+
+                          '</button>'+
+                          '<button type="button" class="btn btn-primary">'+
+                          '    <i class="fa fa-spinner fa-pulse fa-fw"></i>'+
+                          '</button>'+
+                          '<button type="button" class="btn btn-danger">'+
+                          '    <i class="fa fa-times"></i>'+
+                          '</button>'+
+                          '<button type="button" class="btn btn-success">'+
+                          '    <i class="fa fa-check"></i>'+
+                          '</button>'+
+                          '<button type="button" class="btn btn-warning">'+
+                          '    <i class="fa fa-exclamation-triangle"></i>'+
+                          '</button>',
+                classes : 'btn-group-vertical btn-group-sm',
+                style   :
+                {
+                    margin: '10px',
+                    padding: '0px 0 0 0',
+                    cursor: 'pointer'
+                },
+            })
+            .addTo(map);
+
+            L.control.custom({
+                position: 'topleft',
+                content : '<div class="input-group">'+
+                          '    <input type="text" class="form-control input-sm" placeholder="Search">'+
+                          '    <span class="input-group-btn">'+
+                          '        <button class="btn btn-default btn-sm" type="button">Go!</button>'+
+                          '    </span>'+
+                          '</div>',
+                classes : '',
+                style   :
+                {
+                    position: 'absolute',
+                    left: '50px',
+                    top: '0px',
+                    width: '200px',
+                },
+            })
+            .addTo(map);
+
+            L.control.custom({
+                position: 'bottomleft',
+                content : '<div class="panel-body">'+
+                          '    <div class="progress" style="margin-bottom:0px;">'+
+                          '        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="41" '+
+                          '             aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 41%">'+
+                          '            41% Completed'+
+                          '        </div>'+
+                          '    </div>'+
+                          '</div>',
+                classes : 'panel panel-default',
+                style   :
+                {
+                    width: '200px',
+                    margin: '20px',
+                    padding: '0px',
+                },
+            })
+            .addTo(map);
+
+            L.control.custom({
+                position: 'bottomright',
+                content : '<img src="http://lorempixel.com/105/105/" class="img-thumbnail" id="demoImage">',
+                classes : '',
+                style   :
+                {
+                    margin: '0px 20px 20px 0',
+                    padding: '0px',
+                },
+            })
+            .addTo(map);
+
+            L.control.custom({
+                position: 'bottomright',
+                content : '<button class="btn btn-default btn-sm" id="changeImg">'+
+                          '    <i class="fa fa-refresh"></i> Change Image'+
+                          '</button>',
+                classes : '',
+                style   :
+                {
+                    margin: '5px 20px',
+                    padding: '0px',
+                },
+            })
+            .addTo(map);
+
+            $('#changeImg').click(function(){
+                $('#demoImage').attr('src','http://lorempixel.com/105/105/');
+            });
+
+        });
+    </script>
+</html>
