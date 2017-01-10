@@ -26,7 +26,7 @@ Include script inside the head tag after Leaflet:
 
 
 ## Examples
-[Basic Demo](examples)
+[Basic Demo](https://yigityuce.github.io/Leaflet.Control.Custom/examples/index.html)
 
 
 
