@@ -1,15 +1,23 @@
 # Leaflet.Control.Custom
 
-A Customizable Leaflet Control Panel
+A Customizable Leaflet Control Panel.
+You can insert any HTML element to map corners with
 
-  - Put any HTML element to map corners
-  - Bind events
-  - Manipulate content at any time
+  - Custom **id**
+  - Custom **title**
+  - Custom **classes**
+  - Custom **styles**
+  - Custom **data attributes**
+  - Custom **events**
 
-### Requirements
-Minimum Leaflet v0.6.0
+---
+## Requirements
+Leaflet v0.6.0+
 
-### Installation
+
+----------
+
+## Installation
 
 Include script inside the head tag after Leaflet:
 
@@ -17,19 +25,26 @@ Include script inside the head tag after Leaflet:
 <script src="Leaflet.Control.Custom.js"></script>
 ```
 
-### Examples
 
-* [Basic Demo] [PlOd]
+----------
 
-### Usage
 
-```sh
+## Examples
+[Basic Demo](#demo)
+
+
+----------
+
+
+## Usage
+
+```
 
 var map = L.map('map').setView([41.044663,29.033775], 12);
 
 L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-            maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
 L.control.custom({
@@ -57,28 +72,55 @@ L.control.custom({
     {
         margin: '10px',
         padding: '0px 0 0 0',
-        cursor: 'pointer'
+        cursor: 'pointer',
     },
+    datas   :
+    {
+        'foo': 'bar',
+    },
+    events:
+    {
+       	click: function(data)
+       	{
+        	console.log('wrapper div element clicked');
+        	console.log(data);
+        },
+        dblclick: function(data)
+        {
+        	console.log('wrapper div element dblclicked');
+	        console.log(data);
+        },
+        contextmenu: function(data)
+        {
+        	console.log('wrapper div element contextmenu');
+        	console.log(data);
+        },
+    }
 })
 .addTo(map);
 ```
 
-### Options
 
- - Write Tests
- - Rethink Github Save
- - Add Code Comments
- - Add Night Mode
+----------
 
-License
-----
+## Options
+
+Option | Values | Default | Description
+:--- | :--- | :--- | :---
+position | "topleft", "topright", "bottomleft", "bottomright" | "topright" | map position of element
+| id | String | - | wrapper div element's id
+| title | String | - | wrapper div element's title
+| classes | String | - | wrapper div element's class(es) [*Seperate multiple class with space character*] [MDN Element.className](https://developer.mozilla.org/en-US/docs/Web/API/Element/className)
+| content | String | - | html content
+| style | Object | - | wrapper div element's class(es) [MDN HTMLElement.style](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style)
+| datas | Object | - | wrapper div element's data(s) [MDN HTMLElement.dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset)
+| events | Object | - | wrapper div element's event(s) and its callbacks
+
+
+
+
+----------
+
+## License
 
 MIT
-
-
-**Free Software, Hell Yeah!**
-
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
-   [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
-
-
