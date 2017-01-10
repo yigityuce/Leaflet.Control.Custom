@@ -26,7 +26,7 @@ Include script inside the head tag after Leaflet:
 
 
 ## Examples
-[Basic Demo](#demo)
+[Basic Demo](examples)
 
 
 
