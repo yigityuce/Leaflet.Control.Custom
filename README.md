@@ -10,12 +10,10 @@ You can insert any HTML element to map corners with
   - Custom **data attributes**
   - Custom **events**
 
----
+
 ## Requirements
 Leaflet v0.6.0+
 
-
-----------
 
 ## Installation
 
@@ -26,14 +24,10 @@ Include script inside the head tag after Leaflet:
 ```
 
 
-----------
-
 
 ## Examples
 [Basic Demo](#demo)
 
-
-----------
 
 
 ## Usage
@@ -101,8 +95,6 @@ L.control.custom({
 ```
 
 
-----------
-
 ## Options
 
 Option | Values | Default | Description
@@ -118,8 +110,6 @@ position | "topleft", "topright", "bottomleft", "bottomright" | "topright" | map
 
 
 
-
-----------
 
 ## License
 
