@@ -1,6 +1,6 @@
 (function (window, document, undefined) {
     L.Control.Custom = L.Control.extend({
-    	version: '1.0.0',
+        version: '1.0.1',
         options: {
             position: 'topright',
             id: '',
@@ -38,6 +38,9 @@
             {
                 L.DomEvent.stopPropagation(ev);
             });
+
+            /* Prevent scroll events propagation to map when cursor on the div */
+            L.DomEvent.disableScrollPropagation(this.container);
 
             for (var event in this.options.events)
             {

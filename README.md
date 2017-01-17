@@ -74,20 +74,20 @@ L.control.custom({
     },
     events:
     {
-       	click: function(data)
-       	{
-        	console.log('wrapper div element clicked');
-        	console.log(data);
+        click: function(data)
+        {
+            console.log('wrapper div element clicked');
+            console.log(data);
         },
         dblclick: function(data)
         {
-        	console.log('wrapper div element dblclicked');
-	        console.log(data);
+            console.log('wrapper div element dblclicked');
+            console.log(data);
         },
         contextmenu: function(data)
         {
-        	console.log('wrapper div element contextmenu');
-        	console.log(data);
+            console.log('wrapper div element contextmenu');
+            console.log(data);
         },
     }
 })
@@ -114,3 +114,11 @@ position | "topleft", "topright", "bottomleft", "bottomright" | "topright" | map
 ## License
 
 MIT
+
+
+## Version History
+
+Version | Date | Description
+:--- | :--- | :--- | :---
+| v1.0.1 | Jan 17, 2017 | Stopped scroll propagation over control wrapper
+| v1.0.0 | Jan 10, 2017 | -
